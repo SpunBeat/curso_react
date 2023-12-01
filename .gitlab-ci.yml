@@ -1,0 +1,9 @@
+test:
+  stage: test # Etapa del flujo Ci/CD
+  image: node:16 # Imagen de Docker
+  script:
+    - npm install # Instalar las dependencias
+    - npm test -- --ci --reporters=default --reporters=jest-junit # Ejecutar el set de pruebas
+  artifacts:
+    paths:
+      - coverage/ # Directorio de informes de cobertura para almacenar como artefacto
